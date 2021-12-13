@@ -6,6 +6,7 @@ import io.restassured.response.ValidatableResponse;
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import static org.hamcrest.Matchers.equalTo;
@@ -38,9 +39,14 @@ public class testGet {
 
 
         JsonPath jsonPath=response.jsonPath();
+        System.out.println("***************");
+        System.out.println(jsonPath.get().toString());
        assertEquals(1,jsonPath.getInt("page"));
        assertEquals(6,jsonPath.getInt("per_page"));
        assertEquals(12,jsonPath.getInt("total"));
+       List<Object>listdata=new ArrayList<>();
+       listdata=jsonPath.get("data");
+        System.out.println(listdata);
      //  assertEquals(1,jsonPath.getInt("data.id"));
     }
 

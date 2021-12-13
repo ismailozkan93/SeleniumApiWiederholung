@@ -13,10 +13,10 @@ public class AuthenticationTests {
 
     @Test
     public void basicPreemptiveAuthTest() {
-        given().
-                auth().preemptive().basic("username", "password").
+        given().        //preemptive=präventive
+                auth().preemptive().basic("username","password").
         when().
-                get("http://localhost:8080/someEndpoint");
+                get("https://restful-booker.herokuapp.com/booking/");
     }
 
     @Test
